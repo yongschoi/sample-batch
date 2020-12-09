@@ -1,0 +1,63 @@
+spring:
+  profiles:
+    active: window-dev
+---
+spring:
+  profiles: window-dev
+  application:
+    name: sample-batch
+  batch:
+    job:
+      names: ${job.name:NONE}
+      
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - [%-5level] - %msg%n"
+  level:
+    org.springframework.batch: DEBUG
+    yongs.temp: DEBUG
+
+batch:
+  datasource:
+    jdbc-url: jdbc:mariadb://localhost:3306/batch
+    driverClassName: org.mariadb.jdbc.Driver
+    username: scott
+    password: tiger
+      
+temp:
+  datasource:
+    jdbc-url: jdbc:mariadb://localhost:3306/temp
+    driverClassName: org.mariadb.jdbc.Driver
+    username: scott
+    password: tiger
+    
+---
+spring:
+  profiles: ubuntu-dev
+  application:
+    name: sample-batch
+  batch:
+    job:
+      names: ${job.name:NONE}
+      
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - [%-5level] - %msg%n"
+  level:
+    org.springframework.batch: INFO
+    yongs.temp: INFO
+
+batch:
+  datasource:
+    jdbc-url: jdbc:mariadb://localhost:3306/batch
+    driverClassName: org.mariadb.jdbc.Driver
+    username: scott
+    password: tiger
+      
+temp:
+  datasource:
+    jdbc-url: jdbc:mariadb://localhost:3306/temp
+    driverClassName: org.mariadb.jdbc.Driver
+    username: scott
+    password: tiger
+  
